@@ -1,5 +1,5 @@
 import { FormContact, FormLable, FormBtn, FormInput } from './Form.style';
-import { addContact, addContactGandler } from 'store/phoneSlice';
+import { addContact } from 'store/phoneSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import Notiflix from 'notiflix';
