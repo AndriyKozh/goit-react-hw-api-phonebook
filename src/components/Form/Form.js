@@ -60,7 +60,7 @@ const Form = () => {
       dispatch(
         addContact({
           nameUser: name,
-          nameUser: phone,
+          numberUser: phone,
         })
       );
       Notiflix.Notify.success('contact added');
