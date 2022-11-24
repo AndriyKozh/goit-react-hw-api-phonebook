@@ -4,16 +4,19 @@ import { useSelector } from 'react-redux';
 const Phonebook = () => {
   const contactList = useSelector(state => state.contacts.contacts);
   const contactFilter = useSelector(state => state.contacts.filter);
-  console.log(contactList);
 
-  const filtredContact = contactList.filter(contact =>
-    contact.name.toLowerCase().includes(contactFilter)
-  );
-  console.log(filtredContact);
+  const filterList = contactList.filter(contact => {
+    return contact.name.toLowerCase().includes(contactFilter);
+  });
+
+  // const filtredContact = contactList.filter(contact =>
+  //   contact.name.includes(contactFilter)
+  // );
+  // console.log(filtredContact);
 
   return (
     <div className="contacts">
-      {filtredContact.map((contact, index) => {
+      {filterList.map((contact, index) => {
         return <PhoneBookList key={index} {...contact} />;
       })}
     </div>

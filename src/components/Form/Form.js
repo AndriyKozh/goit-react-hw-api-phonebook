@@ -1,5 +1,5 @@
 import { FormContact, FormLable, FormBtn, FormInput } from './Form.style';
-import { addContact } from 'store/phoneSlice';
+import { addContact, addContactGandler } from 'store/phoneSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import Notiflix from 'notiflix';
@@ -44,7 +44,6 @@ const Form = () => {
       backOverlayColor: 'rgba(50,198,130,0.2)',
     },
   });
-  console.log(name);
 
   const handleSubmit = ev => {
     console.log(ev.currentTarget.elements.nameUser.value);
@@ -58,7 +57,12 @@ const Form = () => {
     ) {
       Notiflix.Notify.warning('such a contact already exists');
     } else {
-      dispatch(addContact(name, phone));
+      dispatch(
+        addContact({
+          nameUser: name,
+          nameUser: phone,
+        })
+      );
       Notiflix.Notify.success('contact added');
       setName('');
       setPhone('');

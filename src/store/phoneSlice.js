@@ -43,13 +43,13 @@ export const deleteContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async function ({ name, phone }, { rejectWithValue, dispatch }) {
-    console.log(name);
+  async function ({ names, phone }, { rejectWithValue }) {
     try {
       const user = {
-        name: name,
-        phone: phone,
+        createdAt: '2022-11-23T01:06:18.455Z',
         id: uuidv4(),
+        name: names,
+        phone: phone,
       };
 
       const respons = await fetch(
@@ -93,7 +93,6 @@ const phoneSlice = createSlice({
 
       state.contacts.push({
         user: action.payload,
-
         isComplet: false,
         id: uuidv4(),
       });
@@ -121,12 +120,12 @@ const phoneSlice = createSlice({
   },
 });
 
-const persistConfig = {
-  key: 'phoneBook',
-  storage,
-  whitelist: ['contacts'],
-};
-export const phoneReducer = persistReducer(persistConfig, phoneSlice.reducer);
+// const persistConfig = {
+//   key: 'phoneBook',
+//   storage,
+//   whitelist: ['contacts'],
+// };
+export const phoneReducer = phoneSlice.reducer;
 
 export const { addContactGandler, deleteContact, filterText } =
   phoneSlice.actions;
