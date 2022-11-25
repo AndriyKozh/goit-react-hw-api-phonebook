@@ -58,7 +58,7 @@ export const addContact = createAsyncThunk(
         {
           method: 'POST',
           headers: { 'Content-Type': 'aplication/json' },
-          body: JSON.stringify(user),
+          body: JSON.stringify({ user }),
         }
       );
       console.log(respons);
@@ -67,7 +67,7 @@ export const addContact = createAsyncThunk(
       }
       const data = await respons.json();
       console.log(data);
-      dispatch(addContactGandler(data));
+      dispatch(addContactGandler(user));
     } catch (error) {
       return rejectWithValue(error.message);
     }

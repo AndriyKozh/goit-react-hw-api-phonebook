@@ -7,6 +7,7 @@ import Clock from './Clock/Clock';
 import { fetchContacts } from 'store/phoneSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+// import { Audio } from 'react-loader-spinner';
 
 export const App = () => {
   const dispatch = useDispatch();
