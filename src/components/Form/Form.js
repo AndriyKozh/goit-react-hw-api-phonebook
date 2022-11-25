@@ -46,7 +46,6 @@ const Form = () => {
   });
 
   const handleSubmit = ev => {
-    console.log(ev.currentTarget.elements.nameUser.value);
     ev.preventDefault();
     if (
       contacts.some(

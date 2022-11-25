@@ -43,14 +43,15 @@ export const deleteContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async function ({ names, phone }, { rejectWithValue }) {
+  async function ({ nameUser, numberUser }, { rejectWithValue, dispatch }) {
     try {
-      const user = {
-        createdAt: '2022-11-23T01:06:18.455Z',
+      let user = {
+        createdAt: new Date().toISOString(),
         id: uuidv4(),
-        name: names,
-        phone: phone,
+        name: nameUser,
+        phone: numberUser,
       };
+      console.log(user);
 
       const respons = await fetch(
         'https://637e073b9c2635df8f96b35c.mockapi.io/contacts',
@@ -60,12 +61,13 @@ export const addContact = createAsyncThunk(
           body: JSON.stringify(user),
         }
       );
+      console.log(respons);
       if (!respons.ok) {
         throw new Error("Can't add contact. Server error");
       }
       const data = await respons.json();
       console.log(data);
-      return data;
+      dispatch(addContactGandler(data));
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -88,14 +90,7 @@ const phoneSlice = createSlice({
   },
   reducers: {
     addContactGandler(state, action) {
-      console.log(state);
-      console.log(action);
-
-      state.contacts.push({
-        user: action.payload,
-        isComplet: false,
-        id: uuidv4(),
-      });
+      state.contacts.push(action.payload);
     },
     deleteContact(state, action) {
       state.contacts = state.contacts.filter(
@@ -117,6 +112,7 @@ const phoneSlice = createSlice({
     },
     [fetchContacts.rejected]: setError,
     [deleteContacts.rejected]: setError,
+    [addContact.rejected]: setError,
   },
 });
 

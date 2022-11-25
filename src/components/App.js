@@ -22,7 +22,7 @@ export const App = () => {
         <div className="emblem">
           <Form />
           <Filter />
-          <Phonebook isLoading={isLoading} error={error} />
+          <Phonebook />
           {isLoading === 'loading' && <h2>Loading...</h2>}
           {error && <h2>An error acced: {error}</h2>}
         </div>
