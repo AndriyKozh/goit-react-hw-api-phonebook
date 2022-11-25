@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-// import { persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchContacts = createAsyncThunk(
@@ -47,18 +46,16 @@ export const addContact = createAsyncThunk(
     try {
       let user = {
         createdAt: new Date().toISOString(),
-        id: uuidv4(),
         name: nameUser,
         phone: numberUser,
       };
-      console.log(user);
 
       const respons = await fetch(
         'https://637e073b9c2635df8f96b35c.mockapi.io/contacts',
         {
           method: 'POST',
-          headers: { 'Content-Type': 'aplication/json' },
-          body: JSON.stringify({ user }),
+          headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+          body: JSON.stringify(user),
         }
       );
       console.log(respons);
@@ -67,7 +64,7 @@ export const addContact = createAsyncThunk(
       }
       const data = await respons.json();
       console.log(data);
-      dispatch(addContactGandler(user));
+      dispatch(addContactGandler(data));
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -116,11 +113,6 @@ const phoneSlice = createSlice({
   },
 });
 
-// const persistConfig = {
-//   key: 'phoneBook',
-//   storage,
-//   whitelist: ['contacts'],
-// };
 export const phoneReducer = phoneSlice.reducer;
 
 export const { addContactGandler, deleteContact, filterText } =

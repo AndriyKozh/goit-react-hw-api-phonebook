@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const PhoneBookList = ({ id, phone, name }) => {
   const dispatch = useDispatch();
-  console.log(phone);
 
   return (
     <PhonebookBlock>

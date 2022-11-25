@@ -9,11 +9,6 @@ const Phonebook = () => {
     return contact.name.toLowerCase().includes(contactFilter);
   });
 
-  const filtredContact = contactList.filter(contact =>
-    contact.name.includes(contactFilter)
-  );
-  console.log(filtredContact);
-
   return (
     <div className="contacts">
       {filterList.map((contact, index) => {
