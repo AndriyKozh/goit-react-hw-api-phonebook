@@ -1,12 +1,11 @@
 import { PhonebookBlock, PhoneBookItem, PhoneBookBtn } from './Contacts.style';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteContacts } from 'store/phoneSlice';
 import PropTypes from 'prop-types';
 
-let a = 0;
-
 const PhoneBookList = ({ id, phone, name }) => {
   const dispatch = useDispatch();
+  console.log(phone);
 
   return (
     <PhonebookBlock>
