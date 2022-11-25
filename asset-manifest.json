@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/goit-react-hw-api-phonebook/static/css/main.b90179d3.css",
-    "main.js": "/goit-react-hw-api-phonebook/static/js/main.8178aa13.js",
+    "main.js": "/goit-react-hw-api-phonebook/static/js/main.72311f21.js",
     "static/media/Rectangle 1395.png": "/goit-react-hw-api-phonebook/static/media/Rectangle 1395.c9522e8f99370a301cc5.png",
     "static/media/img2.akspic.ru-atmosfera-geometriya-matematika-purpur-fioletovyj-1080x1920.jpg": "/goit-react-hw-api-phonebook/static/media/img2.akspic.ru-atmosfera-geometriya-matematika-purpur-fioletovyj-1080x1920.355047737532e43a9f11.jpg",
     "index.html": "/goit-react-hw-api-phonebook/index.html",
     "main.b90179d3.css.map": "/goit-react-hw-api-phonebook/static/css/main.b90179d3.css.map",
-    "main.8178aa13.js.map": "/goit-react-hw-api-phonebook/static/js/main.8178aa13.js.map"
+    "main.72311f21.js.map": "/goit-react-hw-api-phonebook/static/js/main.72311f21.js.map"
   },
   "entrypoints": [
     "static/css/main.b90179d3.css",
-    "static/js/main.8178aa13.js"
+    "static/js/main.72311f21.js"
   ]
 }
