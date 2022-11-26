@@ -216,3 +216,19 @@ h2 {
 ::-webkit-scrollbar-track {
   opacity: 0;
 }
+
+.contentError {
+  position: absolute;
+  top: 70%;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+}

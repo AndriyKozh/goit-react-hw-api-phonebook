@@ -7,6 +7,7 @@ import Clock from './Clock/Clock';
 import { fetchContacts } from 'store/phoneSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Blocks } from 'react-loader-spinner';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,8 +24,22 @@ export const App = () => {
           <Form />
           <Filter />
           <Phonebook />
-          {isLoading === 'loading' && <h2>Loading...</h2>}
-          {error && <h2>An error acced: {error}</h2>}
+
+          <div className="loader">
+            {isLoading === 'loading' && (
+              <Blocks
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+              />
+            )}
+          </div>
+          <div className="contentError">
+            {error && <h2>An error acced: {error}</h2>}
+          </div>
         </div>
         <PhoneStyle />
       </div>
